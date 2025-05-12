@@ -1,0 +1,6 @@
+framework module FXExpandableLabel {
+  umbrella header "FXExpandableLabel-umbrella.h"
+
+  export *
+  module * { export * }
+}

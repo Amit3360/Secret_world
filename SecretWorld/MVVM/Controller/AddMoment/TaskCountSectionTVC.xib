@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="TaskCountSectionTVC" customModule="SecretWorld" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="460" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kv-8P-rqn">
+                        <rect key="frame" x="213" y="29" width="34.333333333333343" height="14"/>
+                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
+                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dottedLine" translatesAutoresizingMaskIntoConstraints="NO" id="Bld-Pm-SnM">
+                        <rect key="frame" x="0.0" y="33.666666666666664" width="159.33333333333334" height="5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="5" id="Iab-fc-p5Z"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dottedLine" translatesAutoresizingMaskIntoConstraints="NO" id="8Xt-LD-2Go">
+                        <rect key="frame" x="300.66666666666669" y="33.666666666666664" width="159.33333333333331" height="5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="5" id="5gn-2A-Cyx"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9kv-8P-rqn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bld-Pm-SnM" secondAttribute="trailing" constant="15" id="3Zs-8m-FUQ"/>
+                    <constraint firstItem="9kv-8P-rqn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Eqe-in-eJr"/>
+                    <constraint firstItem="9kv-8P-rqn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SbJ-L2-VEB"/>
+                    <constraint firstItem="8Xt-LD-2Go" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZEj-6F-sZl"/>
+                    <constraint firstItem="Bld-Pm-SnM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eqt-aK-wov"/>
+                    <constraint firstItem="Bld-Pm-SnM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jvS-15-YfQ"/>
+                    <constraint firstItem="8Xt-LD-2Go" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9kv-8P-rqn" secondAttribute="trailing" constant="15" id="lfY-Dh-N9r"/>
+                    <constraint firstAttribute="trailing" secondItem="8Xt-LD-2Go" secondAttribute="trailing" id="pKO-jz-Fbd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblTaskCount" destination="9kv-8P-rqn" id="HpN-Xl-wyA"/>
+            </connections>
+            <point key="canvasLocation" x="181.67938931297709" y="-22.535211267605636"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dottedLine" width="159.33332824707031" height="1"/>
+    </resources>
+</document>

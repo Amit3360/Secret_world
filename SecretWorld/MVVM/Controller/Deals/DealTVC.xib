@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Medium.ttf">
+            <string>Nunito-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DealTVC" rowHeight="215" id="H2q-w0-zWy" customClass="DealTVC" customModule="SecretWorld" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H2q-w0-zWy" id="tBd-z1-pBG">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0g-ez-qyY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy 1 get 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZu-dt-P4x">
+                                <rect key="frame" x="15" y="15.000000000000002" width="82" height="18.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Nunito-Medium" family="Nunito" pointSize="16"/>
+                                <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ulZ-Mi-xKr">
+                                <rect key="frame" x="45" y="149" width="230" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQq-Eg-VbN">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="7zl-S2-vK7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-Medium" family="Nunito" pointSize="11"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" name="AppColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWid">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderCol">
+                                                <color key="value" name="AppColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadi">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoj-4U-tbn">
+                                        <rect key="frame" x="120" y="0.0" width="110" height="36"/>
+                                        <color key="backgroundColor" name="AppColor"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Medium" family="Nunito" pointSize="11"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadi">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hQq-Eg-VbN" firstAttribute="top" secondItem="ulZ-Mi-xKr" secondAttribute="top" id="6uk-x5-rBP"/>
+                                    <constraint firstAttribute="bottom" secondItem="eoj-4U-tbn" secondAttribute="bottom" id="TdR-gi-RV0"/>
+                                    <constraint firstItem="eoj-4U-tbn" firstAttribute="top" secondItem="ulZ-Mi-xKr" secondAttribute="top" id="ZPi-S5-gB5"/>
+                                    <constraint firstAttribute="bottom" secondItem="hQq-Eg-VbN" secondAttribute="bottom" id="hUb-pJ-ApV"/>
+                                    <constraint firstAttribute="height" constant="36" id="hc3-oq-Dwk"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNh-O0-ZLZ">
+                                <rect key="frame" x="269" y="13.333333333333336" width="36" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Rcd-HG-9pz"/>
+                                    <constraint firstAttribute="width" constant="36" id="kdS-eK-agt"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="offdeal"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0Fm-KZ-a5K">
+                                <rect key="frame" x="30" y="43.666666666666664" width="260" height="29.999999999999993"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PNK-L8-WuL"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dZu-dt-P4x" firstAttribute="leading" secondItem="R0g-ez-qyY" secondAttribute="leading" constant="15" id="8Qk-kM-Vn9"/>
+                            <constraint firstItem="ulZ-Mi-xKr" firstAttribute="centerX" secondItem="R0g-ez-qyY" secondAttribute="centerX" id="Gam-ue-4bj"/>
+                            <constraint firstItem="0Fm-KZ-a5K" firstAttribute="leading" secondItem="R0g-ez-qyY" secondAttribute="leading" constant="30" id="Gxa-c5-pyF"/>
+                            <constraint firstAttribute="trailing" secondItem="uNh-O0-ZLZ" secondAttribute="trailing" constant="15" id="I6A-Ge-rba"/>
+                            <constraint firstItem="dZu-dt-P4x" firstAttribute="top" secondItem="R0g-ez-qyY" secondAttribute="top" constant="15" id="Sdv-k6-uWR"/>
+                            <constraint firstAttribute="trailing" secondItem="0Fm-KZ-a5K" secondAttribute="trailing" constant="30" id="YdV-HX-bv0"/>
+                            <constraint firstItem="uNh-O0-ZLZ" firstAttribute="centerY" secondItem="dZu-dt-P4x" secondAttribute="centerY" id="fKO-1K-Xka"/>
+                            <constraint firstItem="0Fm-KZ-a5K" firstAttribute="top" secondItem="dZu-dt-P4x" secondAttribute="bottom" constant="10" id="jHS-Hy-i39"/>
+                            <constraint firstItem="ulZ-Mi-xKr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0Fm-KZ-a5K" secondAttribute="bottom" constant="10" id="lOg-q4-4C4"/>
+                            <constraint firstAttribute="bottom" secondItem="ulZ-Mi-xKr" secondAttribute="bottom" constant="15" id="sSj-iP-Otp"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="R0g-ez-qyY" firstAttribute="leading" secondItem="tBd-z1-pBG" secondAttribute="leading" id="CTM-iK-i3D"/>
+                    <constraint firstAttribute="trailing" secondItem="R0g-ez-qyY" secondAttribute="trailing" id="Hco-5n-gdK"/>
+                    <constraint firstItem="R0g-ez-qyY" firstAttribute="top" secondItem="tBd-z1-pBG" secondAttribute="top" id="d56-dJ-61Z"/>
+                    <constraint firstAttribute="bottom" secondItem="R0g-ez-qyY" secondAttribute="bottom" constant="15" id="nYh-YB-Moe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="POL-uH-e5n"/>
+            <connections>
+                <outlet property="btnDelete" destination="hQq-Eg-VbN" id="M55-aC-X8l"/>
+                <outlet property="btnEdit" destination="eoj-4U-tbn" id="egr-fK-ZaO"/>
+                <outlet property="btnSwitch" destination="uNh-O0-ZLZ" id="zMh-lF-g2A"/>
+                <outlet property="heightTblvw" destination="PNK-L8-WuL" id="SX2-Yy-fdd"/>
+                <outlet property="lblTitle" destination="dZu-dt-P4x" id="egr-l2-cDZ"/>
+                <outlet property="tblVwServices" destination="0Fm-KZ-a5K" id="aSw-gs-Y2X"/>
+            </connections>
+            <point key="canvasLocation" x="-30.534351145038165" y="71.478873239436624"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="offdeal" width="36" height="20"/>
+        <namedColor name="AppColor">
+            <color red="0.24300000071525574" green="0.6119999885559082" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

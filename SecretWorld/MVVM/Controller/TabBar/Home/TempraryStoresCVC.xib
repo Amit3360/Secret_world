@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TempraryStoresCVC" customModule="SecretWorld" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="194" height="174"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="194" height="174"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaI-HT-41M">
+                        <rect key="frame" x="0.0" y="0.0" width="194" height="174"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CP6-qU-Ib1">
+                                <rect key="frame" x="10" y="106" width="174" height="20.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AS-ia-e4X">
+                                <rect key="frame" x="10" y="126.66666666666667" width="174" height="15.333333333333329"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" name="grayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xs5-SH-xII">
+                                <rect key="frame" x="49" y="5" width="96" height="96"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F30-fD-YhB">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
+                                                <real key="value" value="48"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="APK-ew-WeY"/>
+                                    <constraint firstAttribute="trailing" secondItem="F30-fD-YhB" secondAttribute="trailing" id="FLM-GY-dPM"/>
+                                    <constraint firstAttribute="bottom" secondItem="F30-fD-YhB" secondAttribute="bottom" id="XCm-ae-4gd"/>
+                                    <constraint firstAttribute="height" constant="96" id="jDU-Hx-Hmc"/>
+                                    <constraint firstItem="F30-fD-YhB" firstAttribute="leading" secondItem="Xs5-SH-xII" secondAttribute="leading" id="s1u-2E-T1q"/>
+                                    <constraint firstItem="F30-fD-YhB" firstAttribute="top" secondItem="Xs5-SH-xII" secondAttribute="top" id="xXp-kt-eSX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3AS-ia-e4X" secondAttribute="bottom" constant="10" id="ChK-T6-FQE"/>
+                            <constraint firstItem="CP6-qU-Ib1" firstAttribute="leading" secondItem="yaI-HT-41M" secondAttribute="leading" constant="10" id="TSH-cb-gA7"/>
+                            <constraint firstItem="Xs5-SH-xII" firstAttribute="centerX" secondItem="yaI-HT-41M" secondAttribute="centerX" id="X9T-Qe-pJW"/>
+                            <constraint firstItem="CP6-qU-Ib1" firstAttribute="top" secondItem="Xs5-SH-xII" secondAttribute="bottom" constant="5" id="Xhc-uE-bxs"/>
+                            <constraint firstItem="3AS-ia-e4X" firstAttribute="trailing" secondItem="CP6-qU-Ib1" secondAttribute="trailing" id="dGt-Qa-sWy"/>
+                            <constraint firstItem="Xs5-SH-xII" firstAttribute="top" secondItem="yaI-HT-41M" secondAttribute="top" constant="5" id="faa-Pv-PLP"/>
+                            <constraint firstAttribute="trailing" secondItem="CP6-qU-Ib1" secondAttribute="trailing" constant="10" id="o9V-mt-OQo"/>
+                            <constraint firstItem="3AS-ia-e4X" firstAttribute="top" secondItem="CP6-qU-Ib1" secondAttribute="bottom" id="qhp-Lo-gUF"/>
+                            <constraint firstItem="3AS-ia-e4X" firstAttribute="leading" secondItem="CP6-qU-Ib1" secondAttribute="leading" id="yBT-6C-8RW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="yaI-HT-41M" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="289-Fb-RFx"/>
+                <constraint firstAttribute="bottom" secondItem="yaI-HT-41M" secondAttribute="bottom" id="4bd-Hm-1yt"/>
+                <constraint firstItem="yaI-HT-41M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BWx-cd-rN5"/>
+                <constraint firstAttribute="trailing" secondItem="yaI-HT-41M" secondAttribute="trailing" id="vXh-ms-arX"/>
+            </constraints>
+            <size key="customSize" width="194" height="174"/>
+            <connections>
+                <outlet property="imgVwStore" destination="F30-fD-YhB" id="ESM-rD-Wfc"/>
+                <outlet property="lblNameProvider" destination="3AS-ia-e4X" id="2qP-uP-Km4"/>
+                <outlet property="lblStoreName" destination="CP6-qU-Ib1" id="6v5-XF-h7o"/>
+                <outlet property="viewShadow" destination="Xs5-SH-xII" id="Igh-9C-0hD"/>
+            </connections>
+            <point key="canvasLocation" x="210.68702290076334" y="11.267605633802818"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="grayColor">
+            <color red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

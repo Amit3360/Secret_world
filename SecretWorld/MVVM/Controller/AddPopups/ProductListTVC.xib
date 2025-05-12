@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="53" id="KGk-i7-Jjw" customClass="ProductListTVC" customModule="SecretWorld" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="53"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="324" height="53"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1I8-Oe-W0h">
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="53"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Cl-UA-83G">
+                                <rect key="frame" x="0.0" y="0.0" width="179" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Test 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqv-YQ-vGv">
+                                        <rect key="frame" x="10" y="17.666666666666664" width="164" height="17.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="15"/>
+                                        <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Uqv-YQ-vGv" firstAttribute="leading" secondItem="0Cl-UA-83G" secondAttribute="leading" constant="10" id="Cg1-1C-VGD"/>
+                                    <constraint firstItem="Uqv-YQ-vGv" firstAttribute="centerY" secondItem="0Cl-UA-83G" secondAttribute="centerY" id="Vce-nL-Tys"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uqv-YQ-vGv" secondAttribute="trailing" constant="5" id="aul-To-Y3f"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderCol">
+                                        <color key="value" name="BorderColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWid">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqF-Cn-iQc">
+                                <rect key="frame" x="179" y="0.0" width="85" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$25.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tu0-ZX-XFS">
+                                        <rect key="frame" x="5" y="17.666666666666664" width="75" height="17.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="15"/>
+                                        <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Tu0-ZX-XFS" firstAttribute="leading" secondItem="WqF-Cn-iQc" secondAttribute="leading" constant="5" id="6z1-pr-K9z"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tu0-ZX-XFS" secondAttribute="trailing" constant="5" id="gq8-go-wbR"/>
+                                    <constraint firstItem="Tu0-ZX-XFS" firstAttribute="centerY" secondItem="WqF-Cn-iQc" secondAttribute="centerY" id="wMl-TN-FPt"/>
+                                    <constraint firstAttribute="width" constant="85" id="xW8-dp-EAd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderCol">
+                                        <color key="value" name="BorderColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWid">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqo-S3-vcy">
+                                <rect key="frame" x="264" y="0.0" width="60" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="ug5-1l-hzy"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="addreview"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderCol">
+                                        <color key="value" name="BorderColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWid">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="WqF-Cn-iQc" firstAttribute="leading" secondItem="0Cl-UA-83G" secondAttribute="trailing" id="EBc-Pr-54s"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="1I8-Oe-W0h" secondAttribute="bottom" id="7ic-4z-QbD"/>
+                    <constraint firstItem="1I8-Oe-W0h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7lS-5R-XiJ"/>
+                    <constraint firstItem="1I8-Oe-W0h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VMG-94-moK"/>
+                    <constraint firstAttribute="trailing" secondItem="1I8-Oe-W0h" secondAttribute="trailing" id="qhU-DI-NB6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnEdit" destination="lqo-S3-vcy" id="TEy-rG-T3g"/>
+                <outlet property="lblPrice" destination="Tu0-ZX-XFS" id="BJg-yW-O7P"/>
+                <outlet property="lblProductName" destination="Uqv-YQ-vGv" id="MOW-c5-JQw"/>
+                <outlet property="widthEditBtn" destination="ug5-1l-hzy" id="qzA-yJ-Ek5"/>
+            </connections>
+            <point key="canvasLocation" x="132.82442748091603" y="-13.028169014084508"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="addreview" width="11" height="11"/>
+        <namedColor name="BorderColor">
+            <color red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

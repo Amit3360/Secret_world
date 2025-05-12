@@ -1,0 +1,36 @@
+//
+//  VoiceRecordTVC.swift
+//  SecretWorld
+//
+//  Created by Ideio Soft on 01/04/25.
+//
+
+
+import UIKit
+
+class VoiceRecordTVC: UITableViewCell,VoicePlayableCell {
+
+    @IBOutlet weak var bottomReactionVw: NSLayoutConstraint!
+    @IBOutlet weak var vwReactionThird: UIView!
+    @IBOutlet weak var vwReactionSecond: UIView!
+    @IBOutlet weak var vwReactionFirst: UIView!
+    @IBOutlet weak var btnPlay: IndexPathButton!
+ 
+    @IBOutlet weak var vwNotch: UIView!
+    @IBOutlet weak var vwMessage: UIView!
+    @IBOutlet weak var vwWave: UIView!
+    @IBOutlet weak var lblRecordTime: UILabel!
+    @IBOutlet weak var imgVwTick: UIImageView!
+    @IBOutlet weak var lblMessageTime: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}

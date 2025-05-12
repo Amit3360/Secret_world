@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Build Target.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>98</integer>
+		</dict>
+		<key>CustomStickers.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>71</integer>
+		</dict>
+		<key>SecretWorld.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>00FE91DA2B340CA800D8AB20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>00FE91F02B340CAA00D8AB20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>00FE91FA2B340CAA00D8AB20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

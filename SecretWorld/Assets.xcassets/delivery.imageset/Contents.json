@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "scooter-svgrepo-com 325.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "scooter-svgrepo-com 350.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "scooter-svgrepo-com 375.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

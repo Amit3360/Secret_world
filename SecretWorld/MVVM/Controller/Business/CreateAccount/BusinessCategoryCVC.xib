@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BusinessCategoryCVC" id="gTV-IL-0wX" customClass="BusinessCategoryCVC" customModule="SecretWorld" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="159" height="51"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="159" height="51"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tij-GF-4uo">
+                        <rect key="frame" x="0.0" y="0.0" width="159" height="51"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIw-Hw-vZL">
+                                <rect key="frame" x="10" y="16.666666666666668" width="119" height="18.000000000000004"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrH-62-ekZ">
+                                <rect key="frame" x="134" y="15.666666666666664" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="1WO-nd-mcz"/>
+                                    <constraint firstAttribute="width" constant="20" id="dJ7-yW-TJS"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="whiteCross 1"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="GrH-62-ekZ" firstAttribute="leading" secondItem="mIw-Hw-vZL" secondAttribute="trailing" constant="5" id="C1w-HG-pll"/>
+                            <constraint firstItem="GrH-62-ekZ" firstAttribute="centerY" secondItem="tij-GF-4uo" secondAttribute="centerY" id="Suh-tB-2CG"/>
+                            <constraint firstAttribute="trailing" secondItem="GrH-62-ekZ" secondAttribute="trailing" constant="5" id="fUD-Hc-1ru"/>
+                            <constraint firstItem="mIw-Hw-vZL" firstAttribute="centerY" secondItem="tij-GF-4uo" secondAttribute="centerY" id="xI5-Z1-Tsr"/>
+                            <constraint firstItem="mIw-Hw-vZL" firstAttribute="leading" secondItem="tij-GF-4uo" secondAttribute="leading" constant="10" id="xs2-fZ-yCh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="tij-GF-4uo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3P4-cq-bxY"/>
+                <constraint firstAttribute="trailing" secondItem="tij-GF-4uo" secondAttribute="trailing" id="CSS-F9-qLG"/>
+                <constraint firstItem="tij-GF-4uo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Xaf-xQ-W6X"/>
+                <constraint firstAttribute="bottom" secondItem="tij-GF-4uo" secondAttribute="bottom" id="yNg-zJ-MJb"/>
+            </constraints>
+            <size key="customSize" width="159" height="51"/>
+            <connections>
+                <outlet property="btnCross" destination="GrH-62-ekZ" id="n8X-qY-VqT"/>
+                <outlet property="lblLeading" destination="xs2-fZ-yCh" id="5G8-ze-Eel"/>
+                <outlet property="lblName" destination="mIw-Hw-vZL" id="0c4-Lw-MRz"/>
+                <outlet property="lblTrailing" destination="C1w-HG-pll" id="Coi-cZ-hxR"/>
+                <outlet property="vwBg" destination="tij-GF-4uo" id="4O5-n7-6n2"/>
+                <outlet property="widthBtnCross" destination="dJ7-yW-TJS" id="RXO-DG-44u"/>
+            </connections>
+            <point key="canvasLocation" x="95.419847328244273" y="-10.91549295774648"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="whiteCross 1" width="25" height="25"/>
+        <namedColor name="AppColor">
+            <color red="0.24300000071525574" green="0.6119999885559082" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

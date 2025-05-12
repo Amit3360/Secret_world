@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="98" id="KGk-i7-Jjw" customClass="ItinerariesTVC" customModule="SecretWorld" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="98"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="328" height="98"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgZ-z2-OtC">
+                        <rect key="frame" x="0.0" y="0.0" width="328" height="88"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AX-HZ-752">
+                                <rect key="frame" x="10" y="10" width="253" height="22"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2t1-HK-ohz">
+                                <rect key="frame" x="10" y="37" width="253" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdI-0N-c6R">
+                                <rect key="frame" x="273" y="5" width="50" height="78"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDa-A6-Zy1">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="78"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="deleteIt"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QDa-A6-Zy1" secondAttribute="bottom" id="J8l-U4-E3o"/>
+                                    <constraint firstAttribute="trailing" secondItem="QDa-A6-Zy1" secondAttribute="trailing" id="Rga-ef-Dat"/>
+                                    <constraint firstItem="QDa-A6-Zy1" firstAttribute="leading" secondItem="TdI-0N-c6R" secondAttribute="leading" id="VvH-8O-lyJ"/>
+                                    <constraint firstAttribute="width" constant="50" id="lh4-cW-tgL"/>
+                                    <constraint firstItem="QDa-A6-Zy1" firstAttribute="top" secondItem="TdI-0N-c6R" secondAttribute="top" id="pg9-Pz-Uxn"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90588235289999997" green="0.95294117649999999" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2t1-HK-ohz" secondAttribute="bottom" constant="10" id="IFg-Wl-R5j"/>
+                            <constraint firstItem="5AX-HZ-752" firstAttribute="leading" secondItem="GgZ-z2-OtC" secondAttribute="leading" constant="10" id="Tn6-uu-vFE"/>
+                            <constraint firstItem="2t1-HK-ohz" firstAttribute="top" secondItem="5AX-HZ-752" secondAttribute="bottom" constant="5" id="UbF-5c-Of2"/>
+                            <constraint firstItem="2t1-HK-ohz" firstAttribute="leading" secondItem="5AX-HZ-752" secondAttribute="leading" id="WqV-iU-TS4"/>
+                            <constraint firstItem="TdI-0N-c6R" firstAttribute="top" secondItem="GgZ-z2-OtC" secondAttribute="top" constant="5" id="Xnp-KR-EBz"/>
+                            <constraint firstItem="5AX-HZ-752" firstAttribute="top" secondItem="GgZ-z2-OtC" secondAttribute="top" constant="10" id="aPg-vm-tg2"/>
+                            <constraint firstAttribute="bottom" secondItem="TdI-0N-c6R" secondAttribute="bottom" constant="5" id="eh9-ta-KDt"/>
+                            <constraint firstItem="TdI-0N-c6R" firstAttribute="leading" secondItem="5AX-HZ-752" secondAttribute="trailing" constant="10" id="grf-oG-uLM"/>
+                            <constraint firstItem="2t1-HK-ohz" firstAttribute="trailing" secondItem="5AX-HZ-752" secondAttribute="trailing" id="hn5-Ww-zgD"/>
+                            <constraint firstAttribute="trailing" secondItem="TdI-0N-c6R" secondAttribute="trailing" constant="5" id="nLm-Nk-gII"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GgZ-z2-OtC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="E1S-rR-kVL"/>
+                    <constraint firstItem="GgZ-z2-OtC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JAA-mE-Bau"/>
+                    <constraint firstAttribute="bottom" secondItem="GgZ-z2-OtC" secondAttribute="bottom" constant="10" id="Quo-Sn-SBR"/>
+                    <constraint firstAttribute="trailing" secondItem="GgZ-z2-OtC" secondAttribute="trailing" id="nvw-7S-V7o"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnDelete" destination="QDa-A6-Zy1" id="47h-1h-MK7"/>
+                <outlet property="lblItemsCount" destination="2t1-HK-ohz" id="9a7-Ou-iYc"/>
+                <outlet property="lblTimig" destination="5AX-HZ-752" id="T5s-El-H6e"/>
+                <outlet property="viewBack" destination="GgZ-z2-OtC" id="NMS-Pl-gbr"/>
+                <outlet property="viewDeletBtn" destination="TdI-0N-c6R" id="b7e-yr-E4o"/>
+            </connections>
+            <point key="canvasLocation" x="186.25954198473281" y="-15.492957746478874"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="deleteIt" width="13.333333015441895" height="17.333333969116211"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

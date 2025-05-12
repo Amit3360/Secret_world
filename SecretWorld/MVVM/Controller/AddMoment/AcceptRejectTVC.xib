@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="73" id="KGk-i7-Jjw" customClass="AcceptRejectTVC" customModule="SecretWorld" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="413" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfR-xf-Cst">
+                        <rect key="frame" x="20" y="0.0" width="373" height="63"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dp" translatesAutoresizingMaskIntoConstraints="NO" id="8S9-g6-5YW">
+                                <rect key="frame" x="10" y="11.666666666666664" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="DQ7-Lk-HM7"/>
+                                    <constraint firstAttribute="height" constant="40" id="OSy-iN-dcA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brooklyn Simmons" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfB-tc-Mm6">
+                                <rect key="frame" x="60.000000000000007" y="11.666666666666666" width="126.66666666666669" height="17.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gv0-sv-ahh">
+                                <rect key="frame" x="60.000000000000007" y="32.333333333333336" width="126.66666666666669" height="14"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
+                                <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-qD-5Nh">
+                                <rect key="frame" x="189.66666666666663" y="14.666666666666664" width="173.33333333333337" height="34"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3q-Xh-zJV">
+                                        <rect key="frame" x="173.33333333333334" y="0.0" width="34" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="DsN-lo-o8k"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="momentChat"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="E4j-Xh-co2"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.98039215686274506" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9KR-qD-5Nh" firstAttribute="leading" secondItem="dfB-tc-Mm6" secondAttribute="trailing" constant="3" id="6X5-xP-2jh"/>
+                            <constraint firstItem="8S9-g6-5YW" firstAttribute="centerY" secondItem="WfR-xf-Cst" secondAttribute="centerY" id="CNf-Yz-wK1"/>
+                            <constraint firstItem="dfB-tc-Mm6" firstAttribute="leading" secondItem="8S9-g6-5YW" secondAttribute="trailing" constant="10" id="J9z-c3-5QR"/>
+                            <constraint firstItem="Gv0-sv-ahh" firstAttribute="top" secondItem="dfB-tc-Mm6" secondAttribute="bottom" constant="3" id="Wuf-e7-5oc"/>
+                            <constraint firstItem="8S9-g6-5YW" firstAttribute="leading" secondItem="WfR-xf-Cst" secondAttribute="leading" constant="10" id="XPc-CI-EB8"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gv0-sv-ahh" secondAttribute="bottom" id="fTS-Qb-RO8"/>
+                            <constraint firstItem="9KR-qD-5Nh" firstAttribute="centerY" secondItem="WfR-xf-Cst" secondAttribute="centerY" id="iOq-jQ-fgE"/>
+                            <constraint firstItem="Gv0-sv-ahh" firstAttribute="leading" secondItem="dfB-tc-Mm6" secondAttribute="leading" id="jxg-XG-yRq"/>
+                            <constraint firstAttribute="trailing" secondItem="9KR-qD-5Nh" secondAttribute="trailing" constant="10" id="suW-sQ-PNZ"/>
+                            <constraint firstItem="9KR-qD-5Nh" firstAttribute="leading" secondItem="Gv0-sv-ahh" secondAttribute="trailing" constant="3" id="tvp-Gc-Trd"/>
+                            <constraint firstItem="dfB-tc-Mm6" firstAttribute="top" secondItem="8S9-g6-5YW" secondAttribute="top" id="ueG-pb-BVh"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WfR-xf-Cst" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XjE-UY-tRI"/>
+                    <constraint firstAttribute="bottom" secondItem="WfR-xf-Cst" secondAttribute="bottom" constant="10" id="Yhu-e3-yM8"/>
+                    <constraint firstAttribute="trailing" secondItem="WfR-xf-Cst" secondAttribute="trailing" constant="20" id="qHW-SP-xhL"/>
+                    <constraint firstItem="WfR-xf-Cst" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="skh-W2-fja"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnChat" destination="G3q-Xh-zJV" id="kNc-79-1CA"/>
+                <outlet property="imgVwUser" destination="8S9-g6-5YW" id="mGh-tL-Mg8"/>
+                <outlet property="lblGender" destination="Gv0-sv-ahh" id="o00-p4-gTt"/>
+                <outlet property="lblName" destination="dfB-tc-Mm6" id="HMQ-e6-bNo"/>
+            </connections>
+            <point key="canvasLocation" x="156.4885496183206" y="-22.183098591549296"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dp" width="103" height="106.33333587646484"/>
+        <image name="momentChat" width="48" height="48"/>
+    </resources>
+</document>
