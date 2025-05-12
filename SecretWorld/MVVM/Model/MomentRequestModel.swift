@@ -28,13 +28,13 @@ struct AppliedUser: Codable {
     let longitude: String?
     let name,message,requestId: String?
     let profilePhoto: String?
-    let distance: Double?
+    let distance,overallAverage: Double?
     let taskCompleted: Int?
     
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case gender,role,distance,time,message,requestId,createdAt,taskCompleted,taskId
+        case gender,role,distance,time,message,requestId,createdAt,taskCompleted,taskId,overallAverage
         case latitude
         case longitude
         case name
@@ -56,6 +56,7 @@ struct AppliedUser: Codable {
         distance = try? container.decode(Double.self, forKey: .distance)
         profilePhoto = try? container.decode(String.self, forKey: .profilePhoto)
         taskId = try? container.decode(String.self, forKey: .taskId)
+        overallAverage = try? container.decode(Double.self, forKey: .overallAverage)
         taskCompleted = try? container.decode(Int.self, forKey: .taskCompleted)
         
         // Handle latitude/longitude that may come as String or Number

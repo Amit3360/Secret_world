@@ -188,6 +188,9 @@ class AddMomentVC: UIViewController {
     }
     
     @objc func mapTapped(gesture: UITapGestureRecognizer){
+        gotoMap()
+    }
+    func gotoMap(){
         view.endEditing(true)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CurrentLocationVC") as! CurrentLocationVC
         vc.isSignUp = true
@@ -204,8 +207,8 @@ class AddMomentVC: UIViewController {
             }
         }
         self.navigationController?.pushViewController(vc, animated: true)
+
     }
-    
     private func handleLocationManager(){
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -845,23 +848,8 @@ class AddMomentVC: UIViewController {
         self.present(vc, animated: true)
         
     }
-    @IBAction func actionLocation(_ sender: UIButton) {
-        view.endEditing(true)
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CurrentLocationVC") as! CurrentLocationVC
-        vc.isSignUp = true
-        // vc.isUpdate = true
-        vc.latitude = lat
-        vc.longitude = long
-        vc.callBack = { [weak self] location in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                //  self.updateLocation = true
-                self.txtFldLocation.text = location.placeName ?? ""
-                self.lat = location.lat
-                self.long = location.long
-            }
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+    @IBAction func actionMap(_ sender: UIButton) {
+        gotoMap()
     }
     
     @IBAction func actionBack(_ sender: UIButton) {

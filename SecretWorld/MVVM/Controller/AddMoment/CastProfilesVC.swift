@@ -8,7 +8,7 @@
 import UIKit
 
 class CastProfilesVC: UIViewController {
-//MARK: - IBOutlet
+    //MARK: - IBOutlet
     @IBOutlet var lblNoData: UILabel!
     @IBOutlet var tblVwList: UITableView!
     
@@ -35,9 +35,9 @@ class CastProfilesVC: UIViewController {
         tblVwList.register(nibTaskCount, forCellReuseIdentifier: "TaskCountSectionTVC")
         tblVwList.estimatedRowHeight = 300
         tblVwList.rowHeight = UITableView.automaticDimension
-
+        
         getParticipantsList()
-
+        
     }
     private func getParticipantsList() {
         lblNoData.isHidden = true
@@ -48,7 +48,7 @@ class CastProfilesVC: UIViewController {
             self.tblVwList.reloadData()
         }
     }
-
+    
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -67,14 +67,14 @@ extension CastProfilesVC: UITableViewDelegate,UITableViewDataSource{
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       // let filteredData = taskUserDataList.filter { $0.appliedUsers?.isEmpty == false }
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipantsListTVC", for: indexPath) as! ParticipantsListTVC
+        // let filteredData = taskUserDataList.filter { $0.appliedUsers?.isEmpty == false }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipantsListTVC", for: indexPath) as! ParticipantsListTVC
         cell.btnChat.isHidden = true
         cell.btnAccept.isHidden = true
         cell.btnReject.isHidden = true
         cell.hieghtStackVwBTns.constant = 0
-            let appliedUser = filteredTasksWithOriginalIndex[indexPath.section].data.appliedUsers?[indexPath.row]
+        let appliedUser = filteredTasksWithOriginalIndex[indexPath.section].data.appliedUsers?[indexPath.row]
         if Store.UserDetail?["userId"] as? String ?? "" == appliedUser?.id ?? ""{
             
             cell.widthBtnCastProfileChat.constant = 0
@@ -83,30 +83,38 @@ extension CastProfilesVC: UITableViewDelegate,UITableViewDataSource{
             cell.heightBtnChatCastProfile.constant = 36
             cell.widthBtnCastProfileChat.constant = 36
         }
-            
-
-            cell.lblUserNAme.text = appliedUser?.name ?? ""
-            cell.lblTitle.text = appliedUser?.role ?? ""
+        let rating = appliedUser?.overallAverage ?? 0
+        let colors = self.colorsForRating(rating)
+        cell.lblRatingReview.textColor = colors.textColor
+        cell.lblRatingReview.text = self.getRatingLabel(score: rating)  // Convert Float to Double
+        
+        cell.lblUserNAme.text = appliedUser?.name ?? ""
+        cell.lblTitle.text = appliedUser?.role ?? ""
         cell.lblTaskCompleted.text = "• Task completed: \(appliedUser?.taskCompleted ?? 0)"
-
-            cell.lblRatingReview.text = "0.0 (0 Reviews)"
-            cell.lblDesciption.text = appliedUser?.message ?? ""
-            if let distance = appliedUser?.distance {
-                if distance > 0{
-                    cell.lblLocation.text = String(format: "• Location: %.1f miles", distance)
-                }else{
-                    cell.lblLocation.text = "• Location: 0 miles"
-                }
+        if let ratingImageName = self.getRatingImageName(score: rating) {
+            cell.imgVwRatingType.image = UIImage(named: ratingImageName)
+        } else {
+            cell.imgVwRatingType.image = UIImage(named: "meh") // Replace with your default image
+        }
+        
+        cell.lblDesciption.text = ""
+        //cell.lblDesciption.text = appliedUser?.message ?? ""
+        if let distance = appliedUser?.distance {
+            if distance > 0{
+                cell.lblLocation.text = String(format: "• Location: %.1f miles", distance)
+            }else{
+                cell.lblLocation.text = "• Location: 0 miles"
             }
-            cell.imgVwUser.imageLoad(imageUrl: appliedUser?.profilePhoto ?? "")
-            let createdAt = appliedUser?.createdAt ?? ""
-            let formattedTime = convertToAMPM(from: createdAt)
-            cell.lblTime.text = formattedTime
-            
-            return cell
+        }
+        cell.imgVwUser.imageLoad(imageUrl: appliedUser?.profilePhoto ?? "")
+        let createdAt = appliedUser?.createdAt ?? ""
+        let formattedTime = convertToAMPM(from: createdAt)
+        cell.lblTime.text = formattedTime
+        
+        return cell
         
     }
-
+    
     func convertToAMPM(from isoString: String) -> String {
         let isoFormatter = ISO8601DateFormatter()
         isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
@@ -122,6 +130,55 @@ extension CastProfilesVC: UITableViewDelegate,UITableViewDataSource{
             return "Invalid date"
         }
     }
+    func colorsForRating(_ rating: Double) -> (textColor: UIColor, borderColor: UIColor, backgroundColor: UIColor) {
+        switch rating {
+        case 20...40:
+            return (UIColor(hex: "#4CAF50"), UIColor(hex: "#4CAF50"), UIColor(hex: "#DAFFDC")) // Green shades
+        case 40...60:
+            return (UIColor(hex: "#FFD700"), UIColor(hex: "#FFD700"), UIColor(hex: "#FFF8D3")) // Gold shades
+        case 60...80:
+            return (UIColor(hex: "#FF4210"), UIColor(hex: "#FF4210"), UIColor(hex: "#FFE4DD")) // Deep Orange shades
+        case 80...100:
+            return (UIColor(hex: "#3F51B5"), UIColor(hex: "#3F51B5"), UIColor(hex: "#D5DCFF")) // Indigo shades
+        default:
+            return (UIColor(hex: "#A0A0A0"), UIColor(hex: "#A0A0A0"), UIColor(hex: "#F0F0F0")) // Gray shades
+        }
+    }
+    
+    private func getRatingLabel(score: Double) -> String {
+        switch score {
+        case 0...20:
+            return "Meh"
+        case 20...40:
+            return "Okayish"
+        case 40...60:
+            return "Good"
+        case 60...80:
+            return "Fire"
+        case 80...100:
+            return "Awesome"
+        default:
+            return "Unknown"
+        }
+    }
+    
+    private func getRatingImageName(score: Double) -> String? {
+        switch score {
+        case 0...20:
+            return "meh"          // Replace with actual asset name
+        case 21...40:
+            return "okayish"
+        case 41...60:
+            return "good"
+        case 61...80:
+            return "ic_fire"
+        case 81...100:
+            return "awesome"
+        default:
+            return nil
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCountSectionTVC") as! TaskCountSectionTVC
@@ -137,6 +194,6 @@ extension CastProfilesVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-
+    
     
 }

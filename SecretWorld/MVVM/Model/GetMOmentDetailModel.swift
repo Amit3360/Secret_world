@@ -20,7 +20,7 @@ struct MomentData: Codable {
     let name: String?
     let title,place,address: String?
     let userId:userDetailzz?
-    let startDate: String?
+    let startDate,acceptAt: String?
     let tasks: [MomentTask]?
     let description: String?
     let startTime: String?

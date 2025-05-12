@@ -21,7 +21,7 @@ struct Message: Codable {
     let senderID: String?
     let media: [String]?
     var messageDate:Date?
-    var createdAt: String?
+    var createdAt,typeName: String?
     let sender, recipient: Recipient?
     let isRead: Int?
     let msgStatus:String?
@@ -30,7 +30,7 @@ struct Message: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case senderID = "senderId"
-        case media, createdAt, sender, recipient, isRead, message,messageDate,reactionList,msgStatus
+        case media, createdAt, sender, recipient, isRead, message,messageDate,reactionList,msgStatus,typeName
         
     }
     init(id: String?, senderID: String?, media: [String]?, createdAt: String?, sender: Recipient?, recipient: Recipient?, isRead: Int?, message: String?,messageDate: String?,reactionList:[ReactionData]?,msgStatus:String?) {

@@ -50,15 +50,15 @@ class ProfileViewVC: UIViewController,UIGestureRecognizerDelegate {
     var textAbout = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
-           swipeRight.direction = .right
-           view.addGestureRecognizer(swipeRight)
         uiSet()
     }
     @objc func handleSwipe() {
         navigationController?.popViewController(animated: true)
     }
     func uiSet(){
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeRight.direction = .right
+        view.addGestureRecognizer(swipeRight)
         addTapGestureToLabel()
         lblAbout.numberOfLines = 5
         setCollVwLayout()
@@ -112,7 +112,7 @@ class ProfileViewVC: UIViewController,UIGestureRecognizerDelegate {
                 self.lblAbout.appendReadmore(after: self.textAbout, trailingContent: .readmore)
                 self.lblAbout.sizeToFit()
             }
-          
+            
             self.lblName.text = data?.userProfile?.name ?? ""
             let dob = data?.userProfile?.dob ?? ""
             let dateFormatter = DateFormatter()
@@ -129,7 +129,7 @@ class ProfileViewVC: UIViewController,UIGestureRecognizerDelegate {
             self.arrInterst.append(contentsOf: data?.userProfile?.Interests ?? [])
             self.arrSpecialize.append(contentsOf: data?.userProfile?.Specialization ?? [])
             if self.isComingChat == false{
-               
+                
                 Store.UserDetail = ["userName":data?.userProfile?.name ?? "",
                                     "profileImage":data?.userProfile?.profilePhoto ?? "","userId":data?.userProfile?.id ?? "","mobile":data?.userProfile?.mobile ?? 0,"countryCode":Store.UserDetail?["countryCode"] as? String ?? ""]
                 NotificationCenter.default.post(name: Notification.Name("UpdateUserName"), object: nil)
@@ -150,13 +150,13 @@ class ProfileViewVC: UIViewController,UIGestureRecognizerDelegate {
     }
     @objc func labelTapped(_ gesture: UITapGestureRecognizer) {
         guard let text = lblAbout.text else { return }
-              let readmore = (text as NSString).range(of: TrailingContent.readmore.text)
-              let readless = (text as NSString).range(of: TrailingContent.readless.text)
-              if gesture.didTap(label: lblAbout, inRange: readmore) {
-                  lblAbout.appendReadLess(after: textAbout, trailingContent: .readless)
-              } else if  gesture.didTap(label: lblAbout, inRange: readless) {
-                  lblAbout.appendReadmore(after: textAbout, trailingContent: .readmore)
-              } else { return }
+        let readmore = (text as NSString).range(of: TrailingContent.readmore.text)
+        let readless = (text as NSString).range(of: TrailingContent.readless.text)
+        if gesture.didTap(label: lblAbout, inRange: readmore) {
+            lblAbout.appendReadLess(after: textAbout, trailingContent: .readless)
+        } else if  gesture.didTap(label: lblAbout, inRange: readless) {
+            lblAbout.appendReadmore(after: textAbout, trailingContent: .readmore)
+        } else { return }
     }
     func setCollVwLayout(){
         let nib = UINib(nibName: "BusinessCategoryCVC", bundle: nil)
@@ -189,8 +189,8 @@ class ProfileViewVC: UIViewController,UIGestureRecognizerDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         super.viewDidLayoutSubviews()
-            self.heightTblVwReview.constant = self.tblVwReviews.contentSize.height + 10
-            self.view.layoutIfNeeded()
+        self.heightTblVwReview.constant = self.tblVwReviews.contentSize.height + 10
+        self.view.layoutIfNeeded()
         let heightInterest = self.collVwInterst.collectionViewLayout.collectionViewContentSize.height
         self.heightCollVwInterst.constant = heightInterest
         let heightDietry = self.collVwDitary.collectionViewLayout.collectionViewContentSize.height
@@ -209,28 +209,28 @@ class ProfileViewVC: UIViewController,UIGestureRecognizerDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let heightInterest = self.collVwInterst.collectionViewLayout.collectionViewContentSize.height
             self.heightCollVwInterst.constant = heightInterest
-
+            
             let heightDietry = self.collVwDitary.collectionViewLayout.collectionViewContentSize.height
             self.heightCollVwDietary.constant = heightDietry
-
+            
             let heightSpelize = self.collVwSpecialize.collectionViewLayout.collectionViewContentSize.height
             self.heightCollVwSpecialize.constant = heightSpelize
-
+            
             self.view.layoutIfNeeded()
         }
     }
-
-//    func updateCollectionViewHeight() {
-//        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-//            let heightInterest = self.collVwInterst.collectionViewLayout.collectionViewContentSize.height
-//            self.heightCollVwInterst.constant = heightInterest
-//            let heightDietry = self.collVwDitary.collectionViewLayout.collectionViewContentSize.height
-//            self.heightCollVwDietary.constant = heightDietry
-//            let heightSpelize = self.collVwSpecialize.collectionViewLayout.collectionViewContentSize.height
-//            self.heightCollVwSpecialize.constant = heightSpelize
-//            self.view.layoutIfNeeded()
-//        }
-//    }
+    
+    //    func updateCollectionViewHeight() {
+    //        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+    //            let heightInterest = self.collVwInterst.collectionViewLayout.collectionViewContentSize.height
+    //            self.heightCollVwInterst.constant = heightInterest
+    //            let heightDietry = self.collVwDitary.collectionViewLayout.collectionViewContentSize.height
+    //            self.heightCollVwDietary.constant = heightDietry
+    //            let heightSpelize = self.collVwSpecialize.collectionViewLayout.collectionViewContentSize.height
+    //            self.heightCollVwSpecialize.constant = heightSpelize
+    //            self.view.layoutIfNeeded()
+    //        }
+    //    }
     //MARK: - BUTTONACTIONS
     @IBAction func actionPopup(_ sender: UIButton) {
         if isComingChat == false{
@@ -291,7 +291,7 @@ extension ProfileViewVC: UITableViewDelegate,UITableViewDataSource{
         cell.lblDescription.text = arrReview[indexPath.row].comment ?? ""
         cell.lblDescription.sizeToFit()
         let rating = arrReview[indexPath.row].starCount ?? 0.0
-    
+        
         cell.ratingView.rating = rating
         heightDescription += Int(cell.lblDescription.frame.size.height)
         cell.lblTime.text = convertToAMPMTime(arrReview[indexPath.row].createdAt ?? "")
@@ -305,19 +305,19 @@ extension ProfileViewVC: UITableViewDelegate,UITableViewDataSource{
         }
         print("reviewHeight:--\(reviewHeight)")
         let createdAt = arrReview[indexPath.row].createdAt ?? ""
-            let timeAgoString = createdAt.timeAgoSinceDate()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            if let createdDate = dateFormatter.date(from: createdAt) {
-                let timeDifference = Date().timeIntervalSince(createdDate)
-                if timeDifference < 60 {
-                    cell.lblTime.text = "Just now"
-                } else {
-                    cell.lblTime.text = "\(timeAgoString) Ago"
-                }
+        let timeAgoString = createdAt.timeAgoSinceDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        if let createdDate = dateFormatter.date(from: createdAt) {
+            let timeDifference = Date().timeIntervalSince(createdDate)
+            if timeDifference < 60 {
+                cell.lblTime.text = "Just now"
             } else {
                 cell.lblTime.text = "\(timeAgoString) Ago"
             }
+        } else {
+            cell.lblTime.text = "\(timeAgoString) Ago"
+        }
         return cell
     }
     func convertToAMPMTime(_ dateString: String) -> String? {

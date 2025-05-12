@@ -9,6 +9,7 @@ import UIKit
 
 class ParticipantsListTVC: UITableViewCell {
 
+    @IBOutlet var imgVwRatingType: UIImageView!
     @IBOutlet var heightBtnChatCastProfile: NSLayoutConstraint!
     @IBOutlet var hieghtStackVwBTns: NSLayoutConstraint!
     @IBOutlet var widthBtnCastProfileChat: NSLayoutConstraint!

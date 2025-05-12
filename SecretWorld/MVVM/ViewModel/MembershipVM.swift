@@ -9,7 +9,7 @@ import Foundation
 
 class MembershipVM{
     
-    func createMembershipApi(membershipName: String, arrPlan: [Membership], service: [MembershipService], onSuccess: @escaping () -> ()) {
+    func createMembershipApi(membershipName: String, arrPlan: [Membership], service: [MembershipService], onSuccess: @escaping (_ message:String?) -> ()) {
         var membershipDict = [[String: Any]]()
         var servicesDict = [[String: Any]]()
         
@@ -40,11 +40,11 @@ class MembershipVM{
         print("Request Params: \(params)")
         
         WebService.service(API.createMembership, param: params, service: .post, is_raw_form: true) { (model: CommonModel, jsonSer, jsonData) in
-            onSuccess()
+            onSuccess(model.message ?? "")
         }
     }
     
-    func editMembershipApi(id:String,membershipName: String, arrPlan: [Membership], service: [MembershipService], onSuccess: @escaping () -> ()) {
+    func editMembershipApi(id:String,membershipName: String, arrPlan: [Membership], service: [MembershipService], onSuccess: @escaping (_ message:String) -> ()) {
         var membershipDict = [[String: Any]]()
         var servicesDict = [[String: Any]]()
         
@@ -75,7 +75,7 @@ class MembershipVM{
         print("Request Params: \(params)")
         
         WebService.service(API.editMembership,urlAppendId: id, param: params, service: .put, is_raw_form: true) { (model: CommonModel, jsonSer, jsonData) in
-            onSuccess()
+            onSuccess(model.message ?? "")
         }
     }
     
@@ -88,6 +88,13 @@ class MembershipVM{
     
     func deleteMembershipApi(id:String,onSuccess: @escaping ((_ message:String?) -> ())) {
         WebService.service(API.deleteMembership,urlAppendId: id,service: .delete,showHud: true,is_raw_form: true) {(model: CommonModel, jsonSer, jsonData) in
+            onSuccess(model.message ?? "")
+        }
+    }
+    func updateMembershipStatus(id:String,status:Bool,onSuccess: @escaping ((_ message:String?) -> ())) {
+        let param: parameters = ["status":status]
+        print(param)
+        WebService.service(API.updateMembershipStatus,urlAppendId: id,param: param,service: .put,showHud: true,is_raw_form: true) {(model: CommonModel, jsonSer, jsonData) in
             onSuccess(model.message ?? "")
         }
     }

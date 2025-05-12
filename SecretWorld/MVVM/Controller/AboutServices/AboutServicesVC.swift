@@ -38,7 +38,7 @@ class AboutServicesVC: UIViewController {
     @IBOutlet var scrollvw: UIScrollView!
     
 //  var arrButtons = ["Services","About","Gallery","Review","Tasks"]
-    var arrButtons = ["Services","About","Gallery","Review"]
+    var arrButtons = ["Services","About","Gallery","Review","Membership"]
   var businessId = ""
   var arrServiceImgs = [String]()
   var viewModelExplore = ExploreVM()
@@ -509,6 +509,17 @@ extension AboutServicesVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
               }
         
       scrollvw.setContentOffset(CGPoint(x: scrollvw.frame.size.width * 3, y: 3), animated: false)
+    case 4:
+        
+        if let aboutVC = children.first(where: { $0 is MembershipVC }) as? MembershipVC {
+      
+              self.hieghtScrollVw.constant = 800
+               } else {
+                print("AboutVC is not a child of the current view controller.")
+               }
+   
+        
+              scrollvw.setContentOffset(CGPoint(x: scrollvw.frame.size.width * 4, y: 4), animated: false)
 //    case 4:
 //
 //      if arrUserServiceDetail?.gigs?.count ?? 0 > 0{
@@ -537,19 +548,19 @@ extension AboutServicesVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
           cell.lblTitle.textColor = visibleIndexPath == indexPath ? .app : .black
         }
       }
-//      if indexPath.item == 3 {
-//        collectionView.scrollToItem(at: IndexPath(item: 4, section: 0), at: .right, animated: true)
-//      }else if indexPath.item == 1{
-//        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
-//      }else if indexPath.item == 2{
-//         // self.uiSet()
-//      }
+      if indexPath.item == 3 {
+        collectionView.scrollToItem(at: IndexPath(item: 4, section: 0), at: .right, animated: true)
+      }else if indexPath.item == 1{
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
+      }else if indexPath.item == 2{
+         // self.uiSet()
+      }
       updateViewForSelectedSegment(indexPath.item)
     }
   }
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     if collectionView == collVwButtons{
-      return CGSize(width: collVwButtons.frame.size.width / 4 - 10, height: 35)
+      return CGSize(width: collVwButtons.frame.size.width / 4 + 5, height: 35)
     }else if collectionView == collVwCategories{
       return CGSize(width: collVwCategories.frame.size.width / 4 + 10, height: 22)
     }else if collectionView == collVwImages{
@@ -562,7 +573,7 @@ extension AboutServicesVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
         if collectionView == collVwImages{
             return 0
         }else{
-            return 10
+            return 0
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

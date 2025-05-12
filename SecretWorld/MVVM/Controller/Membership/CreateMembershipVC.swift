@@ -50,7 +50,8 @@ class CreateMembershipVC: UIViewController {
 
     var isComing = false
     var memberShipData: MembershipData?
-
+    var callBack:(()->())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchServices()
@@ -68,6 +69,7 @@ class CreateMembershipVC: UIViewController {
             guard let self = self else { return }
             for i in data?.service ?? []{
                 self.arrService.append(MembershipService(serviceId: i._id ?? "", name: i.serviceName ?? ""))
+                self.selectAllServieId.append(MembershipService(serviceId: i._id ?? "", name: i.serviceName ?? ""))
             }
             DispatchQueue.main.async {
                 self.collVwCategory.reloadData()
@@ -147,12 +149,16 @@ class CreateMembershipVC: UIViewController {
 
          print(arrPlan)
         if isComing{
-            viewModel.editMembershipApi(id: memberShipData?.id ?? "", membershipName: txtFldMembershipName.text ?? "", arrPlan: arrPlan, service: selectServiceId) {
+            viewModel.editMembershipApi(id: memberShipData?.id ?? "", membershipName: txtFldMembershipName.text ?? "", arrPlan: arrPlan, service: selectServiceId) { message in
+                showSwiftyAlert("", message, true)
                 self.navigationController?.popViewController(animated: true)
+                self.callBack?()
             }
         }else{
-            viewModel.createMembershipApi(membershipName: txtFldMembershipName.text ?? "", arrPlan: arrPlan, service: selectServiceId) {
+            viewModel.createMembershipApi(membershipName: txtFldMembershipName.text ?? "", arrPlan: arrPlan, service: selectServiceId) { message in
+                showSwiftyAlert("", message ?? "", true)
                 self.navigationController?.popViewController(animated: true)
+                self.callBack?()
             }
         }
       
@@ -160,7 +166,13 @@ class CreateMembershipVC: UIViewController {
     }
     
     @IBAction func actionSelectAllCategory(_ sender: UIButton) {
-        self.selectServiceId.append(contentsOf: selectAllServieId)
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected{
+            self.selectServiceId.append(contentsOf: selectAllServieId)
+        }else{
+            self.selectServiceId.removeAll()
+        }
+        
         self.collVwCategory.reloadData()
     }
     

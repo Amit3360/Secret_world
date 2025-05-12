@@ -55,6 +55,7 @@ class ChatDetailVC: UIViewController {
     var messageDictionary = [String: [Message]]()
     var currrentDate = ""
     var yesterDayDate = ""
+    //var groupedMessages: [Date: [String: [Message]]] = [:]
     var groupedMessages: [Date: [Message]] = [:]
     var dates: [Date] = []
     var callBack:(()->())?
@@ -76,7 +77,6 @@ class ChatDetailVC: UIViewController {
     private let waveformView = BarWaveformView()
     private var audioRecorder = AudioRecorder()
     var audioPlayer: AVAudioPlayer?
-    
     var recordingTimer: Timer?
     var recordingDuration: Int = 0
     var isRecording = false
@@ -85,9 +85,7 @@ class ChatDetailVC: UIViewController {
     var viewModelMessage = MessageVM()
     var socketId = ""
     var seenStatus = true
-    
     var player: AVAudioPlayer?
-    
     var currentPlayingButton: IndexPathButton?
     var playbackTimer: Timer?
     var playbackProgressTimer: Timer?
@@ -110,6 +108,7 @@ class ChatDetailVC: UIViewController {
     var croppedImages: [UIImage?] = []
     var lastContentOffset: CGFloat = 0
     var isMoment = false
+    var typeNames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +129,9 @@ class ChatDetailVC: UIViewController {
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
         
-        
+        let nib = UINib(nibName: "TypeNameTVC", bundle: nil)
+        tblVwChat.register(nib, forCellReuseIdentifier: "TypeNameTVC")
+
         let nibImages = UINib(nibName: "MultipleImagesCVC", bundle: nil)
         collVwMultipleImg.register(nibImages, forCellWithReuseIdentifier: "MultipleImagesCVC")
         SocketIOManager.sharedInstance.seenMessageData = {
@@ -155,7 +156,7 @@ class ChatDetailVC: UIViewController {
         tblVwChat.addGestureRecognizer(longPressGesture)
         self.vwSend.isHidden = true
         if chatType == "task"{
-            btnFire.isHidden = false
+            btnFire.isHidden = true
             if !isMoment{
                 
                 viewModelTask.GetBuisnessGigDetailApi(gigId: typeId) { data in
@@ -371,9 +372,11 @@ class ChatDetailVC: UIViewController {
                     self.arrMessages.removeAll()
                     self.dates.removeAll()
                     self.groupedMessages.removeAll()
+                    self.typeNames.removeAll()
                     self.arrMessages.append(contentsOf: data?[0].messages ?? [])
                     
                     for index in 0..<self.arrMessages.count {
+                        print("typeName:",self.arrMessages[index].typeName ?? "")
                         if let createdAt = self.arrMessages[index].createdAt {
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -1093,7 +1096,6 @@ extension ChatDetailVC:UICollectionViewDelegate,UICollectionViewDataSource,UICol
 }
 
 //MARK: -UITableViewDelegate
-
 extension ChatDetailVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         if isGroup == true{
@@ -1288,7 +1290,7 @@ extension ChatDetailVC: UITableViewDelegate,UITableViewDataSource{
             let messagesForDate = groupedMessages[date]
             let message = messagesForDate?[indexPath.row]
             if message?.media?.count == 0{
-                
+                print(message?.typeName ?? "")
                 if message?.sender?.id == Store.userId {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "SenderTVC", for: indexPath) as! SenderTVC
                     
@@ -2146,6 +2148,7 @@ extension ChatDetailVC: UITableViewDelegate,UITableViewDataSource{
     }
 }
 
+//MARK: - AVAudioPlayerDelegate
 extension ChatDetailVC:AVAudioPlayerDelegate{
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         print("stop (from delegate)")
@@ -2224,6 +2227,8 @@ extension ChatDetailVC {
         }
     }
 }
+
+//MARK: - UITextViewDelegate
 extension ChatDetailVC:UITextViewDelegate{
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -2239,6 +2244,8 @@ extension ChatDetailVC:UITextViewDelegate{
     }
     
 }
+
+//MARK: - UIImagePickerControllerDelegate
 extension ChatDetailVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[.originalImage] as? UIImage {
@@ -2274,6 +2281,7 @@ extension ChatDetailVC: UIImagePickerControllerDelegate, UINavigationControllerD
     }
     
 }
+//MARK: - QBImagePickerControllerDelegate
 extension ChatDetailVC: QBImagePickerControllerDelegate {
     @objc func qb_imagePickerController(_ imagePickerController: QBImagePickerController, didSelect asset: PHAsset) {
         selectImgCount -= 1
@@ -2504,7 +2512,7 @@ extension ChatDetailVC: QBImagePickerControllerDelegate {
     }
 }
 
-
+//MARK: - TOCropViewControllerDelegate
 extension ChatDetailVC: TOCropViewControllerDelegate {
     
     func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
@@ -2539,7 +2547,7 @@ extension ChatDetailVC: TOCropViewControllerDelegate {
 }
 
 
-
+//MARK: - UITextFieldDelegate
 extension ChatDetailVC:UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""

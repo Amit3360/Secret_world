@@ -314,6 +314,7 @@ enum API: String
     case getMembership = "buser/membership/getallmembership"
     case deleteMembership = "buser/membership/deletemembership"
     case editMembership = "buser/membership/editmembership"
+    case updateMembershipStatus = "buser/membership/setmembershipstatus"
 }
 enum dateFormat: String {
     case fullDate = "MM_dd_yy_HH:mm:ss.SS"

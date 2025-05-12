@@ -10,6 +10,7 @@ import AlignedCollectionViewFlowLayout
 
 class MemberlistTVC: UITableViewCell {
 
+    @IBOutlet weak var vwOnOff: UIView!
     @IBOutlet weak var heightService: NSLayoutConstraint!
     @IBOutlet weak var heightPriceType: NSLayoutConstraint!
     @IBOutlet weak var btnEdit: UIButton!
@@ -35,9 +36,13 @@ class MemberlistTVC: UITableViewCell {
     }
 
     func configure(plans:[Plan]?,services:[ServiceMembership]?){
+        self.arrService.removeAll()
+        self.arrPriceType.removeAll()
         self.arrService = services ?? []
         self.arrPriceType = plans ?? []
+        
         collVwPriceType.reloadData()
+        collVwService.reloadData()
         setCollectionViewHeight()
     }
     func setCollectionViewHeight(){
@@ -101,6 +106,6 @@ extension MemberlistTVC: UICollectionViewDelegate, UICollectionViewDataSource, U
             let itemWidth = (collectionView.frame.width - 10) / 2
             return CGSize(width: itemWidth, height: 25)
         }
-        return UICollectionViewFlowLayout.automaticSize
+        return CGSize(width: 30, height: 20)
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 class UserSideMomentTaskListTVC: UITableViewCell {
+    @IBOutlet var collVwAppliedUser: UICollectionView!
     @IBOutlet var viewAmount: UIView!
     @IBOutlet var lblRoleInstruction: UILabel!
     @IBOutlet var viewDurationProgress: UIView!
@@ -21,9 +22,21 @@ class UserSideMomentTaskListTVC: UITableViewCell {
     @IBOutlet var lblDuration: UILabel!
     @IBOutlet var lblAmount: UILabel!
     @IBOutlet var lblOfferBarter: UILabel!
-    
     private var customProgressBar = PlainHorizontalProgressBar()
-    
+    var momentTask: MomentTask? {
+        didSet {
+            collVwAppliedUser.reloadData()
+        }
+    }
+    func uiSet(){
+        let nibImgs = UINib(nibName: "ReviewImagesCVC", bundle: nil)
+        collVwAppliedUser.register(nibImgs, forCellWithReuseIdentifier: "ReviewImagesCVC")
+        collVwAppliedUser.delegate = self
+        collVwAppliedUser.dataSource = self
+        collVwAppliedUser.reloadData()
+        
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         customProgressBar = PlainHorizontalProgressBar(frame: CGRect(x: 0, y: 0, width: viewDurationProgress.bounds.width, height: viewDurationProgress.bounds.height))
@@ -105,22 +118,19 @@ class PlainHorizontalProgressBar: UIView {
     private func setupGradientLayer() {
         // Set gradient colors (lighter start color)
         gradientLayer.colors = [
-            UIColor(hex: "#F2F9F2").cgColor,  // Lighter green
-            UIColor(hex: "#ABFFA4").cgColor
+          UIColor(hex: "#F2F9F2").cgColor, // Lighter green
+          UIColor(hex: "#ABFFA4").cgColor
         ]
-        
         // Set color stops to match CSS gradient's color stop percentages
         gradientLayer.locations = [NSNumber(value: 0.0059), NSNumber(value: 0.9545)]
-        
         // Angle matching 270.75deg (CSS), from right to left with a slight tilt
         gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
-
         layer.addSublayer(gradientLayer)
-
         // Mask layer to clip gradient based on progress
         gradientLayer.mask = maskLayer
-    }
+      }
+
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -133,4 +143,38 @@ class PlainHorizontalProgressBar: UIView {
         maskLayer.frame = CGRect(x: 0, y: 0, width: width, height: bounds.height)
         maskLayer.backgroundColor = UIColor.black.cgColor
     }
+}
+//MARK: - UICollectionViewDelegate
+extension UserSideMomentTaskListTVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return momentTask?.appliedParticipantsList?.count ?? 0
+        
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewImagesCVC", for: indexPath) as! ReviewImagesCVC
+        
+        let profileUrl = momentTask?.appliedParticipantsList?[indexPath.row].profilePhoto ?? ""
+        cell.imgVwReview.imageLoad(imageUrl: profileUrl)
+        cell.leadingImg.constant = 0
+        cell.TrailingImg.constant = 0
+        cell.topImg.constant = 0
+        cell.bottomImg.constant = 0
+        cell.imgVwReview.layoutIfNeeded()
+        cell.imgVwReview.layer.cornerRadius = cell.imgVwReview.frame.width / 2
+        cell.imgVwReview.clipsToBounds = true
+        return cell
+        
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 25, height: 25)
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return -12.5 // vertical spacing (row to row if multi-line)
+    }
+
+
 }

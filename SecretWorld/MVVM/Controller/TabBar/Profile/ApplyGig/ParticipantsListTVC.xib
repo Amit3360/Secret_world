@@ -206,6 +206,7 @@
                 <outlet property="btnReject" destination="4sj-FX-UAL" id="oqN-OQ-kuh"/>
                 <outlet property="heightBtnChatCastProfile" destination="mVb-Lg-nk4" id="TeA-XL-srI"/>
                 <outlet property="hieghtStackVwBTns" destination="8t5-uS-f29" id="lqT-OJ-X5o"/>
+                <outlet property="imgVwRatingType" destination="OGD-vl-1oJ" id="fTL-Ix-fBJ"/>
                 <outlet property="imgVwUser" destination="6H7-tX-YlB" id="Edc-9H-dKa"/>
                 <outlet property="lblDesciption" destination="1US-70-Vsw" id="od1-4C-xoO"/>
                 <outlet property="lblLocation" destination="cJm-x0-g6W" id="Wyl-as-oIa"/>

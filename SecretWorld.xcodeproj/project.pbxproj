@@ -16,10 +16,6 @@
 		000247952D4229FD00AFD4BE /* ViewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0002478E2D4229FD00AFD4BE /* ViewTaskVC.swift */; };
 		000247962D4229FD00AFD4BE /* SkillToolsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0002478F2D4229FD00AFD4BE /* SkillToolsCVC.swift */; };
 		000247972D4229FD00AFD4BE /* UserListCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000247912D4229FD00AFD4BE /* UserListCVC.swift */; };
-		000281B12DCE277500D8867F /* MemberlistTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000281AF2DCE277500D8867F /* MemberlistTVC.swift */; };
-		000281B22DCE277500D8867F /* AddMembershipTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000281AD2DCE277500D8867F /* AddMembershipTVC.swift */; };
-		000281B32DCE277500D8867F /* CreateMembershipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000281AC2DCE277500D8867F /* CreateMembershipVC.swift */; };
-		000281B42DCE277500D8867F /* MembershipListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000281AE2DCE277500D8867F /* MembershipListVC.swift */; };
 		000281B62DCE27EB00D8867F /* MembershipListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000281B52DCE27EB00D8867F /* MembershipListModel.swift */; };
 		000281B82DCE280C00D8867F /* MembershipVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000281B72DCE280C00D8867F /* MembershipVM.swift */; };
 		0002A5772B3A94FC00E36A42 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0002A5762B3A94FC00E36A42 /* PopUpVC.swift */; };
@@ -139,10 +135,19 @@
 		002670E52BAC209F00C99D3B /* GetGigCompleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002670E42BAC209F00C99D3B /* GetGigCompleteModel.swift */; };
 		002670E72BAC4DBE00C99D3B /* AllBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002670E62BAC4DBE00C99D3B /* AllBusinessModel.swift */; };
 		0026A9872B346F7A0097A9E6 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026A9862B346F7A0097A9E6 /* GenderVC.swift */; };
+		0028593D2DD227DE00E171CE /* CreateMembershipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002859362DD227DE00E171CE /* CreateMembershipVC.swift */; };
+		0028593E2DD227DE00E171CE /* MembershipListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002859382DD227DE00E171CE /* MembershipListVC.swift */; };
+		0028593F2DD227DE00E171CE /* MembershipTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028593B2DD227DE00E171CE /* MembershipTVC.swift */; };
+		002859402DD227DE00E171CE /* AddMembershipTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002859372DD227DE00E171CE /* AddMembershipTVC.swift */; };
+		002859412DD227DE00E171CE /* MembershipDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028593C2DD227DE00E171CE /* MembershipDetailVC.swift */; };
+		002859422DD227DE00E171CE /* MemberlistTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002859392DD227DE00E171CE /* MemberlistTVC.swift */; };
+		002859432DD227DE00E171CE /* MembershipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028593A2DD227DE00E171CE /* MembershipVC.swift */; };
 		0028BE902D27A573004F6244 /* ItineraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028BE8F2D27A573004F6244 /* ItineraryVM.swift */; };
 		0028BE922D27D2A3004F6244 /* InfoAndSupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028BE912D27D2A3004F6244 /* InfoAndSupportVC.swift */; };
 		0028BE942D27D2C4004F6244 /* InfoAndSupportTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028BE932D27D2C4004F6244 /* InfoAndSupportTVC.swift */; };
 		002900442BA40D0F0005B1F1 /* UserParticipantsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002900432BA40D0F0005B1F1 /* UserParticipantsListVC.swift */; };
+		00298C532DD1C44A0001E8DC /* TypeNameTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00298C512DD1C44A0001E8DC /* TypeNameTVC.swift */; };
+		00298C542DD1C44A0001E8DC /* TypeNameTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00298C522DD1C44A0001E8DC /* TypeNameTVC.xib */; };
 		002C0FCB2B4414E0007DAE2F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C0FCA2B4414E0007DAE2F /* SearchVC.swift */; };
 		002C0FCD2B441534007DAE2F /* RecentSearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C0FCC2B441534007DAE2F /* RecentSearchTVC.swift */; };
 		002C0FCF2B441579007DAE2F /* SearchSectionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C0FCE2B441579007DAE2F /* SearchSectionTVC.swift */; };
@@ -627,10 +632,6 @@
 		000247902D4229FD00AFD4BE /* SkillToolsCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillToolsCVC.xib; sourceTree = "<group>"; };
 		000247912D4229FD00AFD4BE /* UserListCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCVC.swift; sourceTree = "<group>"; };
 		000247922D4229FD00AFD4BE /* UserListCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListCVC.xib; sourceTree = "<group>"; };
-		000281AC2DCE277500D8867F /* CreateMembershipVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMembershipVC.swift; sourceTree = "<group>"; };
-		000281AD2DCE277500D8867F /* AddMembershipTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMembershipTVC.swift; sourceTree = "<group>"; };
-		000281AE2DCE277500D8867F /* MembershipListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipListVC.swift; sourceTree = "<group>"; };
-		000281AF2DCE277500D8867F /* MemberlistTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberlistTVC.swift; sourceTree = "<group>"; };
 		000281B52DCE27EB00D8867F /* MembershipListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipListModel.swift; sourceTree = "<group>"; };
 		000281B72DCE280C00D8867F /* MembershipVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipVM.swift; sourceTree = "<group>"; };
 		0002A5762B3A94FC00E36A42 /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
@@ -751,10 +752,19 @@
 		002670E42BAC209F00C99D3B /* GetGigCompleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGigCompleteModel.swift; sourceTree = "<group>"; };
 		002670E62BAC4DBE00C99D3B /* AllBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBusinessModel.swift; sourceTree = "<group>"; };
 		0026A9862B346F7A0097A9E6 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
+		002859362DD227DE00E171CE /* CreateMembershipVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMembershipVC.swift; sourceTree = "<group>"; };
+		002859372DD227DE00E171CE /* AddMembershipTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMembershipTVC.swift; sourceTree = "<group>"; };
+		002859382DD227DE00E171CE /* MembershipListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipListVC.swift; sourceTree = "<group>"; };
+		002859392DD227DE00E171CE /* MemberlistTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberlistTVC.swift; sourceTree = "<group>"; };
+		0028593A2DD227DE00E171CE /* MembershipVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipVC.swift; sourceTree = "<group>"; };
+		0028593B2DD227DE00E171CE /* MembershipTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipTVC.swift; sourceTree = "<group>"; };
+		0028593C2DD227DE00E171CE /* MembershipDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipDetailVC.swift; sourceTree = "<group>"; };
 		0028BE8F2D27A573004F6244 /* ItineraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryVM.swift; sourceTree = "<group>"; };
 		0028BE912D27D2A3004F6244 /* InfoAndSupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAndSupportVC.swift; sourceTree = "<group>"; };
 		0028BE932D27D2C4004F6244 /* InfoAndSupportTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAndSupportTVC.swift; sourceTree = "<group>"; };
 		002900432BA40D0F0005B1F1 /* UserParticipantsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParticipantsListVC.swift; sourceTree = "<group>"; };
+		00298C512DD1C44A0001E8DC /* TypeNameTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeNameTVC.swift; sourceTree = "<group>"; };
+		00298C522DD1C44A0001E8DC /* TypeNameTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeNameTVC.xib; sourceTree = "<group>"; };
 		002C0FCA2B4414E0007DAE2F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		002C0FCC2B441534007DAE2F /* RecentSearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTVC.swift; sourceTree = "<group>"; };
 		002C0FCE2B441579007DAE2F /* SearchSectionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSectionTVC.swift; sourceTree = "<group>"; };
@@ -1287,10 +1297,13 @@
 		000281B02DCE277500D8867F /* Membership */ = {
 			isa = PBXGroup;
 			children = (
-				000281AC2DCE277500D8867F /* CreateMembershipVC.swift */,
-				000281AD2DCE277500D8867F /* AddMembershipTVC.swift */,
-				000281AE2DCE277500D8867F /* MembershipListVC.swift */,
-				000281AF2DCE277500D8867F /* MemberlistTVC.swift */,
+				002859362DD227DE00E171CE /* CreateMembershipVC.swift */,
+				002859372DD227DE00E171CE /* AddMembershipTVC.swift */,
+				002859382DD227DE00E171CE /* MembershipListVC.swift */,
+				002859392DD227DE00E171CE /* MemberlistTVC.swift */,
+				0028593A2DD227DE00E171CE /* MembershipVC.swift */,
+				0028593B2DD227DE00E171CE /* MembershipTVC.swift */,
+				0028593C2DD227DE00E171CE /* MembershipDetailVC.swift */,
 			);
 			path = Membership;
 			sourceTree = "<group>";
@@ -1515,6 +1528,8 @@
 				00391DB02DA0218B006EA63E /* BrezerPathRight.swift */,
 				00411A752DAE97B100FD253E /* MultipleImagesCVC.swift */,
 				00411A762DAE97B100FD253E /* MultipleImagesCVC.xib */,
+				00298C512DD1C44A0001E8DC /* TypeNameTVC.swift */,
+				00298C522DD1C44A0001E8DC /* TypeNameTVC.xib */,
 			);
 			path = ChatController;
 			sourceTree = "<group>";
@@ -2695,6 +2710,7 @@
 				00E9F5FE2D50AAAD00726CF0 /* RepeatTVC.xib in Resources */,
 				00B026192D2FE17700F5C36D /* SelectCategoryCVC.xib in Resources */,
 				002E06202DA77B0500EBF931 /* TaskCountSectionTVC.xib in Resources */,
+				00298C542DD1C44A0001E8DC /* TypeNameTVC.xib in Resources */,
 				00C658582D71A60C004B6938 /* Poppins-Italic.ttf in Resources */,
 				00C658592D71A60C004B6938 /* Poppins-BlackItalic.ttf in Resources */,
 				00C6585A2D71A60C004B6938 /* Poppins-Thin.ttf in Resources */,
@@ -3000,10 +3016,6 @@
 				0008E3F82BBD80B300F5F999 /* CustomTableView.swift in Sources */,
 				0001007D2DB7B32600AD7A7B /* CastProfilesVC.swift in Sources */,
 				0033D0692B35D71900D13B31 /* CategoriesCVC.swift in Sources */,
-				000281B12DCE277500D8867F /* MemberlistTVC.swift in Sources */,
-				000281B22DCE277500D8867F /* AddMembershipTVC.swift in Sources */,
-				000281B32DCE277500D8867F /* CreateMembershipVC.swift in Sources */,
-				000281B42DCE277500D8867F /* MembershipListVC.swift in Sources */,
 				000FB3BA2B6BD9CB00CC9F4A /* GetServiceModel.swift in Sources */,
 				00BC724B2D687F79000167FF /* HomeSearchVC.swift in Sources */,
 				002DC5A42B7C9ECE0019EF56 /* OtpVerifyModel.swift in Sources */,
@@ -3143,6 +3155,13 @@
 				001A92E02D26449A005BDC9F /* ItineraryVC.swift in Sources */,
 				004231662DA55E4E008758F8 /* FileUploadModel.swift in Sources */,
 				002290C82DCB0C8B005B587B /* AddMomentTypeVC.swift in Sources */,
+				0028593D2DD227DE00E171CE /* CreateMembershipVC.swift in Sources */,
+				0028593E2DD227DE00E171CE /* MembershipListVC.swift in Sources */,
+				0028593F2DD227DE00E171CE /* MembershipTVC.swift in Sources */,
+				002859402DD227DE00E171CE /* AddMembershipTVC.swift in Sources */,
+				002859412DD227DE00E171CE /* MembershipDetailVC.swift in Sources */,
+				002859422DD227DE00E171CE /* MemberlistTVC.swift in Sources */,
+				002859432DD227DE00E171CE /* MembershipVC.swift in Sources */,
 				002230552D8C3AB9007C9414 /* AddProductTVC.swift in Sources */,
 				007F68C92B398B57006A34ED /* CreateBusinessAcVC.swift in Sources */,
 				00BFCEB92B35CFEC00ABD74F /* SpecialForYouCVC.swift in Sources */,
@@ -3212,6 +3231,7 @@
 				0044AFD92D282AA3009BA76C /* ItirenaryModel.swift in Sources */,
 				002618FE2BCD0B4900A06682 /* SeeAllPopupModel.swift in Sources */,
 				00EB71F72BA030A5008085C6 /* GetUserGigDetailModel.swift in Sources */,
+				00298C532DD1C44A0001E8DC /* TypeNameTVC.swift in Sources */,
 				00B4E4FE2D4B532300641D5E /* SubCategoryModel.swift in Sources */,
 				00B0261B2D2FE1FC00F5C36D /* SelectTagCVC.swift in Sources */,
 				0028BE942D27D2C4004F6244 /* InfoAndSupportTVC.swift in Sources */,

@@ -13,6 +13,7 @@ import CoreLocation
 
 class UserSideMomentDetailVC: UIViewController {
     //MARK: - IBOutlet
+    @IBOutlet var viewUserDetails: UIView!
     @IBOutlet var imgVwUser: UIImageView!
     @IBOutlet var lblrating: UILabel!
     @IBOutlet var lblUserNAme: UILabel!
@@ -63,6 +64,9 @@ class UserSideMomentDetailVC: UIViewController {
     }
     
     private func uiSet(){
+        let tapGestureUserDetail = UITapGestureRecognizer(target: self, action: #selector(self.userDetailTapped(_:)))
+        self.viewUserDetails.addGestureRecognizer(tapGestureUserDetail)
+
         handleMapView()
         let nib = UINib(nibName: "UserSideMomentTaskListTVC", bundle: nil)
         tblVwTaskList.register(nib, forCellReuseIdentifier: "UserSideMomentTaskListTVC")
@@ -72,20 +76,20 @@ class UserSideMomentDetailVC: UIViewController {
         tblVwTaskList.rowHeight = UITableView.automaticDimension
         getMomentApi()
     }
-    
+    @objc func userDetailTapped(_ sender: UITapGestureRecognizer){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewVC") as! ProfileViewVC
+        vc.isComingChat = true
+        vc.id = MomentData?.userId?.id ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
     //MARK: - API Call
     func getMomentApi() {
         viewModel.getMomentDetails(id: momentId ?? "") { data in
-            
-            //            if data?.paymentMethod == 0{
-            //                self.paymentMethod = "Online"
-            //            }else{
-            //                self.paymentMethod = "Cash"
-            //            }
             self.MomentData = data
             self.lblrating.text = "\(data?.ownerReview ?? 0.0)"
-            self.lblUserNAme.text = data?.userId?.name ?? ""
-            self.imgVwUser.imageLoad(imageUrl: data?.userId?.profilePhoto ?? "") 
+            self.lblUserNAme.text = data?.userId?.name ?? "".capitalized
+            self.imgVwUser.imageLoad(imageUrl: data?.userId?.profilePhoto ?? "")
             self.momentUserDetail = data?.userId
             self.placeName = data?.place ?? ""
             self.lat = data?.lat ?? 0
@@ -297,6 +301,7 @@ class UserSideMomentDetailVC: UIViewController {
             self.updatePopUpAnnotations(with: pointAnnotation)
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.mapTapped(_:)))
             self.viewGotoMAp.addGestureRecognizer(tapGesture)
+
             // Set camera to zoom to the location of the annotation
             self.viewMap.mapboxMap.setCamera(to: CameraOptions(center: CLLocationCoordinate2D(latitude: lat ?? 0, longitude: long ?? 0),zoom: 12,bearing: 0,pitch: 0))
             
@@ -387,6 +392,8 @@ extension UserSideMomentDetailVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserSideMomentTaskListTVC", for: indexPath) as! UserSideMomentTaskListTVC
+        cell.momentTask = arrTasks[indexPath.row]
+        cell.uiSet()
         let task = arrTasks[indexPath.row]
         let accepted = task.personAccepted ?? 0
         let needed = task.personNeeded ?? 0
@@ -457,37 +464,71 @@ extension UserSideMomentDetailVC: UITableViewDelegate,UITableViewDataSource{
             cell.btnApply.setTitle("Ongoing", for: .normal)
             cell.btnApply.alpha = 0.5
             cell.btnApply.isEnabled = false
-            let durationInSeconds = getDurationInSeconds(from: task.taskDuration ?? "")
-            let startDateStr = MomentData?.startDate ?? ""
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-            
-            if let startDate = dateFormatter.date(from: startDateStr) {
-                let bufferDelay: TimeInterval = 300 // 5-minute buffer
-                let actualStartDate = startDate.addingTimeInterval(bufferDelay)
-                let endDate = actualStartDate.addingTimeInterval(TimeInterval(durationInSeconds))
+            if self.MomentData?.type == "now"{
+                let durationInSeconds = getDurationInSeconds(from: task.taskDuration ?? "")
+                let startDateStr = MomentData?.acceptAt ?? ""
                 
-                let taskTimer = TaskTimer(startDate: actualStartDate, endDate: endDate) { [weak cell] remainingTime in
-                    let totalDuration = endDate.timeIntervalSince(actualStartDate)
-                    let remainingTimeInterval = endDate.timeIntervalSince(Date())
-                    let elapsedPercentage = min(1, max(0, 1 - (remainingTimeInterval / totalDuration)))
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+                
+                if let startDate = dateFormatter.date(from: startDateStr) {
+                    // Removed the 5-minute buffer
+                    let endDate = startDate.addingTimeInterval(TimeInterval(durationInSeconds))
                     
-                    DispatchQueue.main.async {
-                        cell?.updateCustomProgressBar(progress: elapsedPercentage)
-                        cell?.lblDuration.textColor = UIColor(hex: "#FF8205")
-                        if cell?.lblDuration.text != remainingTime {
-                            cell?.lblDuration.text = remainingTime
+                    let taskTimer = TaskTimer(startDate: startDate, endDate: endDate) { [weak cell] remainingTime in
+                        let totalDuration = endDate.timeIntervalSince(startDate)
+                        let remainingTimeInterval = endDate.timeIntervalSince(Date())
+                        let elapsedPercentage = min(1, max(0, 1 - (remainingTimeInterval / totalDuration)))
+                        
+                        DispatchQueue.main.async {
+                            cell?.updateCustomProgressBar(progress: elapsedPercentage)
+                            cell?.lblDuration.textColor = UIColor(hex: "#FF8205")
+                            if cell?.lblDuration.text != remainingTime {
+                                cell?.lblDuration.text = remainingTime
+                            }
                         }
                     }
+                    
+                    if Date() < startDate {
+                        cell.lblDuration.text = task.taskDuration ?? ""
+                    }
+                    
+                    taskTimer.startTimer()
                 }
+            }else{
+                let durationInSeconds = getDurationInSeconds(from: task.taskDuration ?? "")
+                let startDateStr = MomentData?.startDate ?? ""
                 
-                if Date() < actualStartDate {
-                    cell.lblDuration.text = task.taskDuration ?? ""
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+                
+                if let startDate = dateFormatter.date(from: startDateStr) {
+                    let bufferDelay: TimeInterval = 300 // 5-minute buffer
+                    let actualStartDate = startDate.addingTimeInterval(bufferDelay)
+                    let endDate = actualStartDate.addingTimeInterval(TimeInterval(durationInSeconds))
+                    
+                    let taskTimer = TaskTimer(startDate: actualStartDate, endDate: endDate) { [weak cell] remainingTime in
+                        let totalDuration = endDate.timeIntervalSince(actualStartDate)
+                        let remainingTimeInterval = endDate.timeIntervalSince(Date())
+                        let elapsedPercentage = min(1, max(0, 1 - (remainingTimeInterval / totalDuration)))
+                        
+                        DispatchQueue.main.async {
+                            cell?.updateCustomProgressBar(progress: elapsedPercentage)
+                            cell?.lblDuration.textColor = UIColor(hex: "#FF8205")
+                            if cell?.lblDuration.text != remainingTime {
+                                cell?.lblDuration.text = remainingTime
+                            }
+                        }
+                    }
+                    
+                    if Date() < actualStartDate {
+                        cell.lblDuration.text = task.taskDuration ?? ""
+                    }
+                    
+                    taskTimer.startTimer()
                 }
-                
-                taskTimer.startTimer()
             }
             
         case 5:
@@ -653,7 +694,7 @@ extension UserSideMomentDetailVC: UITableViewDelegate,UITableViewDataSource{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "CommonPopUpVC") as! CommonPopUpVC
             vc.isSelect = 10
             if self.MomentData?.type == "now"{
-                vc.message = "Your task will start 10 minutes after you are accepted."
+                vc.message = "Your task will start 9 minutes after you are accepted."
             }else{
                 vc.message = "If you are hired, please be punctual and make sure to reach at the moment location on time.Your tasks will start 5 minutes after the scheduled time, i.e.,\(self.withFiveMinuteStartTime)"
             }

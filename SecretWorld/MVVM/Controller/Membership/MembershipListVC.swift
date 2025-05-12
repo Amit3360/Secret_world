@@ -39,6 +39,10 @@ class MembershipListVC: UIViewController {
     
     @IBAction func actionAdd(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateMembershipVC") as! CreateMembershipVC
+        vc.callBack = { [weak self] in
+            guard let self = self else {return}
+            self.getAllMembershipApi()
+        }
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -54,8 +58,10 @@ extension MembershipListVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemberlistTVC", for: indexPath) as! MemberlistTVC
-        cell.arrPriceType = arrMembership[indexPath.row].plans ?? []
+        
         cell.configure(plans: arrMembership[indexPath.row].plans, services: arrMembership[indexPath.row].services)
+         cell.btnOnOff.isSelected = arrMembership[indexPath.row].isActive ?? false ? true : false
+        cell.vwOnOff.isHidden = arrMembership[indexPath.row].isActive ?? false ? true : false
         cell.lblMembershipName.text = arrMembership[indexPath.row].name ?? ""
         if let plans = arrMembership[indexPath.row].plans {
             var benefitsText = ""
@@ -72,6 +78,8 @@ extension MembershipListVC:UITableViewDelegate,UITableViewDataSource{
         cell.btnEdit.tag = indexPath.row
         cell.btnDelete.addTarget(self, action: #selector(deleteMembership), for: .touchUpInside)
         cell.btnDelete.tag = indexPath.row
+        cell.btnOnOff.addTarget(self, action: #selector(onOff), for: .touchUpInside)
+        cell.btnOnOff.tag = indexPath.row
         return cell
     }
     
@@ -79,6 +87,10 @@ extension MembershipListVC:UITableViewDelegate,UITableViewDataSource{
         let vc = instantiateVC(CreateMembershipVC.self, id: "CreateMembershipVC")
         vc.isComing = true
         vc.memberShipData = arrMembership[sender.tag]
+        vc.callBack = { [weak self] in
+            guard let self = self else {return}
+            self.getAllMembershipApi()
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func deleteMembership(sender:UIButton){
@@ -93,6 +105,21 @@ extension MembershipListVC:UITableViewDelegate,UITableViewDataSource{
         }
         navigationController?.present(vc, animated: false)
       
+    }
+    
+    @objc func onOff(sender:UIButton){
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected{
+            viewModel.updateMembershipStatus(id: arrMembership[sender.tag].id ?? "", status: true) { message in
+                showSwiftyAlert("", message ?? "", true)
+                self.getAllMembershipApi()
+            }
+        }else{
+            viewModel.updateMembershipStatus(id: arrMembership[sender.tag].id ?? "", status: false) { message in
+                showSwiftyAlert("", message ?? "", true)
+                self.getAllMembershipApi()
+            }
+        }
     }
     private func instantiateVC<T: UIViewController>(_ type: T.Type, id: String) -> T {
         return storyboard?.instantiateViewController(withIdentifier: id) as! T
