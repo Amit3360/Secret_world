@@ -31,10 +31,10 @@ struct Allservicees: Codable {
     let serviceImages: [String]?
     let subcategories: [UserSubCategoryy]?
     let rating: Double?
-
+    let membershipServices:[MembershipServices]?
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case serviceName, price, serviceImages, subcategories, rating,review,about,actualPrice,discount
+        case serviceName, price, serviceImages, subcategories, rating,review,about,actualPrice,discount,membershipServices
     }
 }
 
@@ -48,6 +48,25 @@ struct Allservicees: Codable {
 //        case categoryName, userSubCategories
 //    }
 //}
+
+struct MembershipServices:Codable{
+    let id: String?
+    let plans:[MembershipPlan]?
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case plans
+    }
+}
+
+// MARK: - UserSubCategory
+struct MembershipPlan: Codable {
+    let id, benefits,type: String?
+    let price:Double?
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case benefits,type,price
+    }
+}
 
 // MARK: - UserSubCategory
 struct UserSubCategoryy: Codable {

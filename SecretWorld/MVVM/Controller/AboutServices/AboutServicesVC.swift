@@ -573,7 +573,7 @@ extension AboutServicesVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
         if collectionView == collVwImages{
             return 0
         }else{
-            return 0
+            return 5
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
